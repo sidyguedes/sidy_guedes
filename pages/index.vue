@@ -41,7 +41,7 @@
         <v-row>
           <v-col cols="6">
             <div align="right">
-              <v-btn depressed height="55" rounded large dark color="#36aae4"
+              <v-btn depressed height="55" large dark color="#36aae4"
                 class="font-weight-bold text-capitalize btn-download">
                 Resume
                 <v-icon right dark>
@@ -52,12 +52,12 @@
           </v-col>
           <v-col cols="6">
             <div align="left">
-              <v-chip large>
+              <v-chip label class="mt-3">
                 <a class="px-1" href="#" target="_blank">
                   <v-icon color="#323232">mdi-whatsapp</v-icon>
                 </a>
               </v-chip>
-              <v-chip large>
+              <v-chip label class="mt-3">
                 <a class="px-1" href="#" target="_blank">
                   <v-icon color="#323232">mdi-facebook-messenger</v-icon>
                 </a>
@@ -66,21 +66,17 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-            <div color="#e8e8e8" class="div-filter">
-              <v-btn @click="showContentFilter('prj')" depressed>Projects</v-btn>
-              <v-btn @click="showContentFilter('skl')" depressed>Skills</v-btn>
+            <div class="div-filter">
+              <v-btn-toggle background-color="#d0d0d0" v-model="toggle_exclusive">
+                <v-btn color="white" @click="showContentFilter('prj')">Projects</v-btn>
+                <v-btn color="white" @click="showContentFilter('skl')">Skills</v-btn>
+              </v-btn-toggle>
             </div>
         </v-row>
       </div>
-      <div class="pa-12 ma-12 mt-0 content-show" >
+      <div class="mt-0 content-show" >
         <Transition name="slide-fade">
-          <div v-if="showSkills" class="text-center">
-            <v-chip class="ma-2" color="indigo" text-color="white">
-              <v-avatar left>
-                <v-icon>mdi-account-circle</v-icon>
-              </v-avatar>
-              Mike
-            </v-chip>
+          <div v-if="showSkills" class="text-center col-8">
             <v-chip class="ma-2" color="orange" text-color="white">
               Premium
               <v-icon right>
@@ -114,18 +110,20 @@
           </div>
         </Transition>
         <Transition name="slide-fade">
-          <v-row align-content="center" v-if="showProjects">
-            <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="6">
-              <v-img :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`" aspect-ratio="1" class="grey lighten-2">
-                <template v-slot:placeholder>
-                  <v-row class="fill-height ma-0" align="center" justify="center">
-                    <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                  </v-row>
-                </template>
-              </v-img>
-            </v-col>
-          </v-row>
+          <div v-if="showProjects" class="text-center col-8">
+            <v-row align-content="center">
+              <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
+                <v-img :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`" aspect-ratio="1" class="grey lighten-2">
+                  <template v-slot:placeholder>
+                    <v-row class="fill-height ma-0" align="center" justify="center">
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </v-col>
+            </v-row>
+          </div>
         </Transition>
       </div>
     </v-container>
@@ -136,8 +134,9 @@
   export default {
     data() {
       return {
-        showProjects: true,
-        showSkills: false
+        showProjects: false,
+        showSkills: false,
+        toggle_exclusive: undefined,
       }
     },
     methods: {
@@ -159,7 +158,6 @@
     //background-image: linear-gradient(to bottom, #ffffff, #f8f8f8, #f0f0f0, #e9e9e9, #e2e2e2);
     background: radial-gradient(circle, rgba(255,255,255,1) 63%, rgba(221,221,221,1) 100%);
     
-    
   }
   .main {
     color: #494949;
@@ -178,13 +176,16 @@
 
     .div-filter {
       margin: 2rem 0 2.5rem;
-      background-color: #e8e8e8;
+      background-color: #d0d0d0;
       padding: .375rem;
       border-radius: .75rem;
       display: flex;
       justify-content: space-between;
       column-gap: .5rem;
 
+    }
+    .btn-download{
+      border-radius: 8px;
     }
 
     //-------INICIO CSS TRANSICTION-----------
