@@ -1,14 +1,12 @@
 <template>
-  <div align="center" class="main container">
+  <div align="center" class="main">
     <v-container class="mt-10">
       <v-avatar color="grey lighten-2" size="128">
         <v-img class="profile-picture px-2" src="1.jpg" alt="SG"></v-img>
       </v-avatar>
-      <div class="mt-3 name">
-        <span class="title pt-5 font-weight-bold">Sidy Guedes</span>
-      </div>
-      <div>
-        <span class="caption pt-5 font-weight-bold">Web developer</span>
+      <div class="mt-3 d-flex flex-column">
+        <span class="title font-weight-bold">Sidy Guedes</span>
+        <span class="caption font-weight-bold">Web developer</span>
       </div>
       <div class="social-media text-center pa-5">
         <a class="px-1" href="#" target="_blank">
@@ -66,47 +64,39 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-            <div class="div-filter">
-              <v-btn-toggle background-color="#d0d0d0" v-model="toggle_exclusive">
-                <v-btn color="white" @click="showContentFilter('prj')">Projects</v-btn>
-                <v-btn color="white" @click="showContentFilter('skl')">Skills</v-btn>
-              </v-btn-toggle>
-            </div>
+          <div class="div-filter">
+            <v-btn-toggle background-color="#d0d0d0" v-model="toggle_exclusive">
+              <v-btn class="font-weight-bold" color="white" @click="showContentFilter('prj')">Projects</v-btn>
+              <v-btn class="font-weight-bold" color="white" @click="showContentFilter('skl')">Skills</v-btn>
+            </v-btn-toggle>
+          </div>
         </v-row>
       </div>
-      <div class="mt-0 content-show" >
+      <div class="mt-0 content-show">
         <Transition name="slide-fade">
-          <div v-if="showSkills" class="text-center col-8">
-            <v-chip class="ma-2" color="orange" text-color="white">
-              Premium
-              <v-icon right>
-                mdi-star
-              </v-icon>
-            </v-chip>
-            <v-chip class="ma-2" color="primary" text-color="white">
-              1 Year
-              <v-icon right>
-                mdi-cake-variant
-              </v-icon>
-            </v-chip>
-            <v-chip class="ma-2" color="green" text-color="white">
-              <v-avatar left class="green darken-4">
-                1
-              </v-avatar>
-              Years
-            </v-chip>
-            <v-chip class="ma-2" color="teal" text-color="white">
-              <v-avatar left>
-                <v-icon>mdi-checkbox-marked-circle</v-icon>
-              </v-avatar>
-              Confirmed
-            </v-chip>
-            <v-chip class="ma-2" color="teal" text-color="white" close-icon="mdi-delete" >
-              <v-avatar left>
-                <v-icon>mdi-checkbox-marked-circle</v-icon>
-              </v-avatar>
-              Confirmed
-            </v-chip>
+          <div v-if="showSkills" class="col-8 d-flex flex-row">
+            <div class="box-front col-6">
+               <span class="text-center font-weight-bold">Frontend developer</span>
+              <v-row class="ma-3">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>HTML</span></v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>VueJS</span></v-col>
+              </v-row>
+              <v-row class="ma-3">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>CSS</span></v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Bootstrap</span></v-col>
+              </v-row>
+              <v-row class="ma-3">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Javascript</span></v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Git</span></v-col>
+              </v-row>
+            </div>
+            <div class="box-back col-6" >
+              <span class="text-center font-weight-bold">Backend developer</span>
+              <v-row class="ma-3">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>PHP</span></v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>MySQL</span></v-col>
+              </v-row>
+            </div>
           </div>
         </Transition>
         <Transition name="slide-fade">
@@ -127,6 +117,13 @@
         </Transition>
       </div>
     </v-container>
+    <v-footer padless class="foooter">
+      <v-card class="flex" flat tile>
+        <v-card-text class="py-2 grey--text text-center">
+          {{ new Date().getFullYear() }} — <strong>Sidgley Guedes</strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </div>
 </template>
 
@@ -134,7 +131,7 @@
   export default {
     data() {
       return {
-        showProjects: false,
+        showProjects: true,
         showSkills: false,
         toggle_exclusive: undefined,
       }
@@ -154,11 +151,12 @@
 
 </script>
 <style lang="scss">
-  .v-application--wrap{
+  .v-application--wrap {
     //background-image: linear-gradient(to bottom, #ffffff, #f8f8f8, #f0f0f0, #e9e9e9, #e2e2e2);
-    background: radial-gradient(circle, rgba(255,255,255,1) 63%, rgba(221,221,221,1) 100%);
-    
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%);
+
   }
+
   .main {
     color: #494949;
 
@@ -184,25 +182,30 @@
       column-gap: .5rem;
 
     }
-    .btn-download{
+
+    .btn-download {
       border-radius: 8px;
     }
 
-    //-------INICIO CSS TRANSICTION-----------
-    .slide-fade-enter-active {
-      transition: all 0.2s ease-out;
-    }
+    //-------BEGINING OF CSS TRANSICTION-----------
+    // .slide-fade-enter-active {
+    //   transition: all 0.2s ease-out;
+    // }
 
-    .slide-fade-leave-active {
-      transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-    }
+    // .slide-fade-leave-active {
+    //   transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+    // }
 
-    .slide-fade-enter-from,
-    .slide-fade-leave-to {
-      transform: translateX(20px);
-      opacity: 0;
-    }
+    // .slide-fade-enter-from,
+    // .slide-fade-leave-to {
+    //   transform: translateX(20px);
+    //   opacity: 0;
+    // }
+    //--------------END OF CSS TRANSITION---------------
 
+    .footer {
+      background: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%) !important;
+    }
   }
 
 </style>
