@@ -65,7 +65,7 @@
         </v-row>
         <v-row justify="center">
           <div class="div-filter">
-            <v-btn-toggle background-color="#d0d0d0" v-model="toggle_exclusive">
+            <v-btn-toggle width="auto" background-color="#fffff" v-model="toggle_exclusive">
               <v-btn class="font-weight-bold" color="white" @click="showContentFilter('prj')">Projects</v-btn>
               <v-btn class="font-weight-bold" color="white" @click="showContentFilter('skl')">Skills</v-btn>
             </v-btn-toggle>
@@ -73,46 +73,56 @@
         </v-row>
       </div>
       <div class="mt-0 content-show">
-        <Transition name="slide-fade">
-          <div v-if="showSkills" class="col-8 d-flex flex-row">
-            <div class="box-front col-6">
-               <span class="text-center font-weight-bold">Frontend developer</span>
-              <v-row class="ma-3">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>HTML</span></v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>VueJS</span></v-col>
+        <Transition name="bounce">
+          <div v-if="showProjects" class="col-8">
+            <v-row>
+              <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
+                <v-card :key="item" class="mx-auto" max-width="344">
+                <v-img src="https://picsum.photos/500/300?image=6" height="200px"></v-img>
+
+                <v-card-title>
+                  Nome Projeto
+                </v-card-title>
+
+                <v-card-subtitle class="text-left">
+                  Javascript, HTML, CSS, VueJS
+                </v-card-subtitle>
+
+                <v-card-actions>
+                  <v-btn small dark outlined color="#36aae4">
+                    Ver no github
+                  </v-btn>
+                  <v-spacer></v-spacer>
+                </v-card-actions>
+              </v-card>
+              </v-col>
               </v-row>
-              <v-row class="ma-3">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>CSS</span></v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Bootstrap</span></v-col>
-              </v-row>
-              <v-row class="ma-3">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Javascript</span></v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>Git</span></v-col>
-              </v-row>
-            </div>
-            <div class="box-back col-6" >
-              <span class="text-center font-weight-bold">Backend developer</span>
-              <v-row class="ma-3">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>PHP</span></v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon><span>MySQL</span></v-col>
-              </v-row>
-            </div>
           </div>
         </Transition>
-        <Transition name="slide-fade">
-          <div v-if="showProjects" class="text-center col-8">
-            <v-row align-content="center">
-              <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
-                <v-img :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`" aspect-ratio="1" class="grey lighten-2">
-                  <template v-slot:placeholder>
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                    </v-row>
-                  </template>
-                </v-img>
-              </v-col>
-            </v-row>
+        <Transition name="bounce">
+          <div align="stretch" v-if="showSkills" class="col-6 d-flex justify-start align-start">
+            <div class="box-front col-6" style="border-right: 1px solid grey;">
+               <span class="text-center font-weight-bold">Frontend developer</span>
+              <v-row class="ma-3 text-left">
+                <v-col class="caption font-weight-bold grey--text"> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Bootstrap</v-col>
+                <v-col class="caption font-weight-bold grey--text"> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Javascript</v-col>
+              </v-row>
+              <v-row class="ma-3 text-left">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> HTML</v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> VueJS</v-col>
+              </v-row>
+              <v-row class="ma-3 text-left">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> CSS</v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Git</v-col>
+              </v-row>
+            </div>
+            <div class="box-back col-6">
+              <span class="text-center font-weight-bold">Backend developer</span>
+              <v-row class="ma-1 text-left">
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> PHP</v-col>
+                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> MySQL</v-col>
+              </v-row>
+            </div>
           </div>
         </Transition>
       </div>
@@ -188,19 +198,23 @@
     }
 
     //-------BEGINING OF CSS TRANSICTION-----------
-    // .slide-fade-enter-active {
-    //   transition: all 0.2s ease-out;
-    // }
-
-    // .slide-fade-leave-active {
-    //   transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-    // }
-
-    // .slide-fade-enter-from,
-    // .slide-fade-leave-to {
-    //   transform: translateX(20px);
-    //   opacity: 0;
-    // }
+   .bounce-enter-active {
+      animation: bounce-in 0.5s;
+    }
+    .bounce-leave-active {
+      animation: bounce-in 0.5s reverse;
+    }
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.25);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
     //--------------END OF CSS TRANSITION---------------
 
     .footer {
