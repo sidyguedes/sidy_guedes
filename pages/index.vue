@@ -77,7 +77,7 @@
           <div v-if="showProjects" class="col-8">
             <v-row>
               <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
-                <v-card :key="item" class="mx-auto" max-width="344">
+                <v-card :key="n" class="mx-auto" max-width="344">
                 <v-img src="https://picsum.photos/500/300?image=6" height="200px"></v-img>
 
                 <v-card-title>
@@ -217,8 +217,11 @@
     }
     //--------------END OF CSS TRANSITION---------------
 
-    .footer {
-      background: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%) !important;
+    .v-footer {
+      background-color: transparent;
+      .v-card {
+        background-color: transparent;
+      }
     }
   }
 
