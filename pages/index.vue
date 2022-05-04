@@ -5,8 +5,8 @@
         <v-img class="profile-picture px-2" src="1.jpg" alt="SG"></v-img>
       </v-avatar>
       <div class="mt-3 d-flex flex-column">
-        <span class="title font-weight-bold">Sidy Guedes</span>
-        <span class="caption font-weight-bold">Web developer</span>
+        <span class="title-name">Sidy Guedes</span>
+        <span class="title-role">Web developer</span>
       </div>
       <div class="social-media text-center pa-5">
         <a class="px-1" href="#" target="_blank">
@@ -23,15 +23,15 @@
         <v-card color="transparent" class="d-flex flex-row justify-center" flat tile>
           <span class="pa-4 font-weight-bold">
             3
-            <p class="grey--text caption font-weight-bold">Years of <br>Work</p>
+            <p class="font-weight-bold">Years of <br>Work</p>
           </span>
           <span class="pa-4 font-weight-bold">
             +50
-            <p class="grey--text caption font-weight-bold">Completed <br>Projects</p>
+            <p class="font-weight-bold">Completed <br>Projects</p>
           </span>
           <span class="pa-4 font-weight-bold">
             96
-            <p class="grey--text caption font-weight-bold">Satisfied <br>Costumers</p>
+            <p class="font-weight-bold">Satisfied <br>Costumers</p>
           </span>
         </v-card>
       </div>
@@ -162,12 +162,15 @@
 </script>
 <style lang="scss">
   .v-application--wrap {
-    //background-image: linear-gradient(to bottom, #ffffff, #f8f8f8, #f0f0f0, #e9e9e9, #e2e2e2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%);
-
   }
-
   .main {
+    .title-role {
+      font-size: 12px;
+      color: #999999;
+    }
     color: #494949;
 
     a {
