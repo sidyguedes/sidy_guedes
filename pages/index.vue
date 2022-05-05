@@ -19,22 +19,20 @@
           <v-icon class="media-icon" color="#323232">mdi-github</v-icon>
         </a>
       </div>
-      <div>
-        <v-card color="transparent" class="d-flex flex-row justify-center" flat tile>
-          <span class="pa-4 font-weight-bold">
-            3
-            <p class="font-weight-bold">Years of <br>Work</p>
+        <div color="transparent" class="d-flex flex-row justify-center" flat tile>
+          <span class="pa-4">
+            2
+            <p class="title-role">Years of <br>Work</p>
           </span>
-          <span class="pa-4 font-weight-bold">
-            +50
-            <p class="font-weight-bold">Completed <br>Projects</p>
+          <span class="pa-4">
+            4
+          <p class="title-role">Completed <br>Projects</p>
           </span>
-          <span class="pa-4 font-weight-bold">
-            96
-            <p class="font-weight-bold">Satisfied <br>Costumers</p>
+          <span class="pa-4">
+            4
+            <p class="title-role">Satisfied <br>Costumers</p>
           </span>
-        </v-card>
-      </div>
+        </div>
       <div class="resume-download">
         <v-row>
           <v-col cols="6">
@@ -74,27 +72,24 @@
       </div>
       <div class="mt-0 content-show">
         <Transition name="bounce">
-          <div v-if="showProjects" class="col-8">
+          <div v-if="showProjects" class="col-8 ">
             <v-row>
               <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
-                <v-card :key="n" class="mx-auto" max-width="344">
-                <v-img src="https://picsum.photos/500/300?image=6" height="200px"></v-img>
-
-                <v-card-title>
-                  Nome Projeto
-                </v-card-title>
-
-                <v-card-subtitle class="text-left">
-                  Javascript, HTML, CSS, VueJS
-                </v-card-subtitle>
-
-                <v-card-actions>
-                  <v-btn small dark outlined color="#36aae4">
-                    Ver no github
-                  </v-btn>
-                  <v-spacer></v-spacer>
-                </v-card-actions>
-              </v-card>
+                <v-card :key="n" class="mx-auto card-project" max-width="344">
+                  <v-img src="https://picsum.photos/500/300?image=6" height="200px"></v-img>
+                  <v-card-title>
+                    Nome Projeto
+                  </v-card-title>
+                  <v-card-subtitle class="text-left">
+                    Javascript, HTML, CSS, VueJS
+                  </v-card-subtitle>
+                  <v-card-actions>
+                    <v-btn small dark outlined color="#36aae4">
+                      Ver no github
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                  </v-card-actions>
+                </v-card>
               </v-col>
               </v-row>
           </div>
@@ -146,6 +141,7 @@
         toggle_exclusive: undefined,
       }
     },
+
     methods: {
       showContentFilter(value) {
         if (value == 'prj') {
@@ -168,8 +164,11 @@
   }
   .main {
     .title-role {
-      font-size: 12px;
-      color: #999999;
+      font-size: 14px;
+      color: #8d8c8c;
+    }
+    .title-name {
+      font-size: 18px;
     }
     color: #494949;
 
@@ -219,6 +218,11 @@
       }
     }
     //--------------END OF CSS TRANSITION---------------
+    .card-project{
+      border-radius: 15px;
+      transition: all .2s ease-in-out;
+    }
+    .card-project:hover { transform: scale(1.1); }
 
     .v-footer {
       background-color: transparent;
