@@ -70,13 +70,12 @@
           </div>
         </v-row>
       </div>
-      <div class="mt-0 content-show">
         <Transition name="bounce">
-          <div v-if="showProjects" class="col-8 ">
+          <div v-if="showProjects" class="col-8 align-center">
             <v-row>
               <v-col v-for="n in 4" :key="n" class="d-flex child-flex" cols="12" md="6" lg="6">
-                <v-card :key="n" class="mx-auto card-project" max-width="344">
-                  <v-img src="https://picsum.photos/500/300?image=6" height="200px"></v-img>
+                <v-card :key="n" class="align-center justify-center card-project" >
+                  <v-img src="https://picsum.photos/500/300?image=6" ></v-img>
                   <v-card-title>
                     Nome Projeto
                   </v-card-title>
@@ -95,32 +94,32 @@
           </div>
         </Transition>
         <Transition name="bounce">
-          <div align="stretch" v-if="showSkills" class="col-6 d-flex justify-start align-start">
-            <div class="box-front col-6" style="border-right: 1px solid grey;">
+          <div v-if="showSkills" class="col-8 d-flex">
+            <div class="box-front col-5">
                <span class="text-center font-weight-bold">Frontend developer</span>
               <v-row class="ma-3 text-left">
-                <v-col class="caption font-weight-bold grey--text"> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Bootstrap</v-col>
-                <v-col class="caption font-weight-bold grey--text"> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Javascript</v-col>
+                <v-col class="title-role "> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Bootstrap</v-col>
+                <v-col class="title-role "> <v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Javascript</v-col>
               </v-row>
               <v-row class="ma-3 text-left">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> HTML</v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> VueJS</v-col>
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> HTML</v-col>
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> VueJS</v-col>
               </v-row>
               <v-row class="ma-3 text-left">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> CSS</v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Git</v-col>
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> CSS</v-col>
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> Git</v-col>
               </v-row>
             </div>
-            <div class="box-back col-6">
+            <div class="col-2"></div>
+            <div class="box-back col-5">
               <span class="text-center font-weight-bold">Backend developer</span>
-              <v-row class="ma-1 text-left">
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> PHP</v-col>
-                <v-col class="caption font-weight-bold grey--text"><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> MySQL</v-col>
+              <v-row class="ma-3 text-left">
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> PHP</v-col>
+                <v-col class="title-role "><v-icon small color="#36aae4">mdi-checkbox-marked-circle-outline</v-icon> MySQL</v-col>
               </v-row>
             </div>
           </div>
         </Transition>
-      </div>
     </v-container>
     <v-footer padless class="foooter">
       <v-card class="flex" flat tile>
@@ -157,12 +156,12 @@
 
 </script>
 <style lang="scss">
-  .v-application--wrap {
+  .main {
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%);
-  }
-  .main {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 63%, rgba(221, 221, 221, 1) 100%) !important;
+    
     .title-role {
       font-size: 14px;
       color: #8d8c8c;

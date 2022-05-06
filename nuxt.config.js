@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - sidy_guedes',
+    titleTemplate: 'Sidy Guedes - Web Developer',
     title: 'Sidy Guedes - Web Developer',
     htmlAttrs: {
       lang: 'en'
@@ -47,6 +47,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
+
+  router: { base: '/sidy_guedes/' },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
